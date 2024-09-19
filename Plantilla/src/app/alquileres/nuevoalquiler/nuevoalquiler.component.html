@@ -1,0 +1,55 @@
+<div class="card my-5">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <h3 class="mb-0">{{ titulo }}</h3>
+      </div>
+      <form [formGroup]="frm_Alquiler" (ngSubmit)="grabar()">
+        <div class="row">
+          <div class="form-group mb-3">
+            <label class="form-label" for="vehiculo_id">Vehículo ID</label>
+            <input formControlName="vehiculo_id" type="text" class="form-control" id="vehiculo_id" placeholder="Ingrese el ID del vehículo" />
+            <div *ngIf="frm_Alquiler.get('vehiculo_id').invalid && frm_Alquiler.get('vehiculo_id').touched">
+              <small *ngIf="frm_Alquiler.get('vehiculo_id').hasError('required')" style="color: red">El ID del vehículo es requerido</small>
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label class="form-label" for="cliente_id">Cliente ID</label>
+            <input formControlName="cliente_id" type="text" class="form-control" id="cliente_id" placeholder="Ingrese el ID del cliente" />
+            <div *ngIf="frm_Alquiler.get('cliente_id').invalid && frm_Alquiler.get('cliente_id').touched">
+              <small *ngIf="frm_Alquiler.get('cliente_id').hasError('required')" style="color: red">El ID del cliente es requerido</small>
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label class="form-label" for="fecha_inicio">Fecha Inicio</label>
+            <input formControlName="fecha_inicio" type="date" class="form-control" id="fecha_inicio" />
+            <div *ngIf="frm_Alquiler.get('fecha_inicio').invalid && frm_Alquiler.get('fecha_inicio').touched">
+              <small *ngIf="frm_Alquiler.get('fecha_inicio').hasError('required')" style="color: red">La fecha de inicio es requerida</small>
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label class="form-label" for="fecha_fin">Fecha Fin</label>
+            <input formControlName="fecha_fin" type="date" class="form-control" id="fecha_fin" />
+            <div *ngIf="frm_Alquiler.get('fecha_fin').invalid && frm_Alquiler.get('fecha_fin').touched">
+              <small *ngIf="frm_Alquiler.get('fecha_fin').hasError('required')" style="color: red">La fecha de fin es requerida</small>
+            </div>
+          </div>
+  
+          <div class="form-group mb-3">
+            <label class="form-label" for="total">Total</label>
+            <input formControlName="total" type="number" class="form-control" id="total" placeholder="Ingrese el total del alquiler" />
+            <div *ngIf="frm_Alquiler.get('total').invalid && frm_Alquiler.get('total').touched">
+              <small *ngIf="frm_Alquiler.get('total').hasError('required')" style="color: red">El total es requerido</small>
+            </div>
+          </div>
+  
+          <div class="d-grid mt-3">
+            <button type="submit" class="btn btn-primary" [disabled]="frm_Alquiler.invalid">Grabar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

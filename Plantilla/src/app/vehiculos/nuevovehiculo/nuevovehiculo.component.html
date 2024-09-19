@@ -1,0 +1,86 @@
+<div class="card my-5">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <h3 class="mb-0">
+          {{ titulo }} 
+        </h3>
+      </div>
+  
+      <div class="row">
+   
+        <form [formGroup]="frm_vehiculo" novalidate (ngSubmit)="grabar()">
+          <div class="container mt-4">
+      
+            <div class="row">
+              <div class="col-12">
+                <h5>Datos del Vehículo</h5>
+              </div>
+  
+              <div class="col-6 mb-3">
+                <label class="form-label" for="marca">Marca</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="marca"
+                  formControlName="marca"
+                  required
+                />
+                <div *ngIf="frm_vehiculo.get('marca').invalid && frm_vehiculo.get('marca').touched">
+                  <small class="text-danger">La marca es requerida</small>
+                </div>
+              </div>
+  
+              <div class="col-6 mb-3">
+                <label class="form-label" for="modelo">Modelo</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="modelo"
+                  formControlName="modelo"
+                  required
+                />
+                <div *ngIf="frm_vehiculo.get('modelo').invalid && frm_vehiculo.get('modelo').touched">
+                  <small class="text-danger">El modelo es requerido</small>
+                </div>
+              </div>
+  
+              <div class="col-6 mb-3">
+                <label class="form-label" for="año">Año</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="año"
+                  formControlName="año"
+                  required
+                />
+                <div *ngIf="frm_vehiculo.get('año').invalid && frm_vehiculo.get('año').touched">
+                  <small class="text-danger">El año es requerido</small>
+                </div>
+              </div>
+  
+              <div class="col-6 mb-3">
+                <label class="form-label" for="disponible">Disponible</label>
+                <select class="form-control" id="disponible" formControlName="disponible" required>
+                  <option [ngValue]="true">Sí</option>
+                  <option [ngValue]="false">No</option>
+                </select>
+                <div *ngIf="frm_vehiculo.get('disponible').invalid && frm_vehiculo.get('disponible').touched">
+                  <small class="text-danger">Seleccionar disponibilidad</small>
+                </div>
+              </div>
+            </div>
+  
+            <hr />
+  
+            <!-- Botón para guardar el vehículo -->
+            <div class="d-grid mt-3">
+              <button type="submit" class="btn btn-primary" [disabled]="frm_vehiculo.invalid">
+                Guardar Vehículo
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

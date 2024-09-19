@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card cardTitle="Lista de Alquileres" blockClass="pc-component">
+        <div class="col-md-12 col-xl-8">
+          <h5 class="mb-3">
+            <a href="nuevoalquiler" class="btn btn-outline-dark">Nuevo Alquiler</a>
+          </h5>
+          <div class="card tbl-card">
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Vehículo ID</th>
+                    <th>Cliente ID</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                    <th>Total</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let alquiler of listaAlquileres; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ alquiler.vehiculo_id }}</td>
+                    <td>{{ alquiler.cliente_id }}</td>
+                    <td>{{ alquiler.fecha_inicio | date }}</td>
+                    <td>{{ alquiler.fecha_fin | date }}</td>
+                    <td>{{ alquiler.total | currency:'USD' }}</td>
+                    <td>
+                      <button type="button" class="btn btn-outline-success" [routerLink]="['/editaralquiler/', alquiler.alquiler_id]">
+                        Editar
+                      </button>
+                      <button (click)="eliminar(alquiler.alquiler_id)" type="button" class="btn btn-outline-danger">
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
+  
