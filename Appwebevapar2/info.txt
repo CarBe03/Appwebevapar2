@@ -1,1 +1,0 @@
-Sistema de Gestión de Alquiler de Vehículos: Desarrolla una base de datos para gestionar vehículos y clientes, incluyendo alquileres. Tablas: `Vehiculos` (vehiculo_id, marca, modelo, año, disponible), `Clientes` (cliente_id, nombre, apellido, licencia, telefono). Carlos Pintag
