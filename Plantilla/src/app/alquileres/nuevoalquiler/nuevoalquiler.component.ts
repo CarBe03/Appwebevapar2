@@ -35,12 +35,11 @@ export class NuevoalquilerComponent implements OnInit {
     this.alquiler_id = parseInt(this.ruta.snapshot.paramMap.get('alquiler_id'));
     if (this.alquiler_id > 0) {
       this.alquileresServicio.uno(this.alquiler_id).subscribe((unalquiler) => {
-        this.frm_Alquiler.controls['cliente_id'].setValue(Number(unalquiler.cliente_id));
-        this.frm_Alquiler.controls['fecha_inicio'].setValue(Number(unalquiler.fecha_inicio));
-        this.frm_Alquiler.controls['fecha_fin'].setValue(Number(unalquiler.fecha_fin));
-        
-this.frm_Alquiler.controls['total'].setValue(unalquiler.total);
-
+        this.frm_Alquiler.controls['cliente_id'].setValue(unalquiler.cliente_id);
+        this.frm_Alquiler.controls['vehiculo_id'].setValue(unalquiler.vehiculo_id);
+        this.frm_Alquiler.controls['fecha_inicio'].setValue(unalquiler.fecha_inicio);
+        this.frm_Alquiler.controls['fecha_fin'].setValue(unalquiler.fecha_fin);
+        this.frm_Alquiler.controls['total'].setValue(unalquiler.total);
 
         this.titulo = 'Editar Alquiler';
       });
@@ -50,11 +49,11 @@ this.frm_Alquiler.controls['total'].setValue(unalquiler.total);
   grabar() {
     let alquiler: Ialquileres = {
       alquiler_id: this.alquiler_id,
-      vehiculo_id: Number(this.frm_Alquiler.controls['vehiculo_id'].value),  
-  cliente_id: Number(this.frm_Alquiler.controls['cliente_id'].value),    
-  fecha_inicio: Number (this.frm_Alquiler.controls['fecha_inicio'].value),
-  fecha_fin: Number (this.frm_Alquiler.controls['fecha_fin'].value),
-  total: this.frm_Alquiler.controls['total'].value,  
+      vehiculo_id: this.frm_Alquiler.controls['vehiculo_id'].value,
+      cliente_id: this.frm_Alquiler.controls['cliente_id'].value,
+      fecha_inicio: this.frm_Alquiler.controls['fecha_inicio'].value,
+      fecha_fin: this.frm_Alquiler.controls['fecha_fin'].value,
+      total: this.frm_Alquiler.controls['total'].value
     };
 
     Swal.fire({

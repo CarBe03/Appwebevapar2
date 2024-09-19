@@ -2,19 +2,19 @@
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-end mb-4">
         <h3 class="mb-0">
-          {{ Clientes }}
+          {{ titulo }}
        
         </h3>
       </div>
       <form [formGroup]="frm_Cliente" (ngSubmit)="grabar()">
         <div class="row">
           <div class="form-group mb-3">
-            <label class="form-label" for="Cedula">Licencia</label>
-            <input formControlName="Cedula" type="text" class="form-control" id="Cedula" placeholder="Ingrese la cedula Cedula" />
-            <div *ngIf="frm_Cliente.get('Cedula').invalid && frm_Cliente.get('Cedula').touched">
-              <small *ngIf="frm_Cliente.get('Cedula').hasError('required')" style="color: red">La licencia es requerida</small>
-              <small *ngIf="frm_Cliente.get('Cedula').hasError('cedulaInvalida')" style="color: red">La licencia ingresada no es correcta</small>
-              <small *ngIf="frm_Cliente.get('Cedula').hasError('provincia')" style="color: red">La provincia no existe</small>
+            <label class="form-label" for="Licencia">Licencia</label>
+            <input formControlName="Licencia" type="text" class="form-control" id="Licencia" placeholder="Ingrese la Licencia Licencia" />
+            <div *ngIf="frm_Cliente.get('Licencia').invalid && frm_Cliente.get('Licencia').touched">
+              <small *ngIf="frm_Cliente.get('Licencia').hasError('required')" style="color: red">La licencia es requerida</small>
+              <small *ngIf="frm_Cliente.get('Licencia').hasError('LicenciaInvalida')" style="color: red">La licencia ingresada no es correcta</small>
+              <small *ngIf="frm_Cliente.get('Licencia').hasError('provincia')" style="color: red">La provincia no existe</small>
             </div>
           </div>
           <div class="form-group mb-3">
@@ -29,13 +29,6 @@
             <input type="text" formControlName="Telefono" class="form-control" id="Telefono" />
             <div *ngIf="frm_Cliente.get('Telefono').invalid && frm_Cliente.get('Telefono').touched">
               <small *ngIf="frm_Cliente.get('Telefono').hasError('required')" style="color: red">El telefono es requerido</small>
-            </div>
-          </div>
-          <div class="form-group mb-3">
-            <label class="form-label" for="Direccion">Direccion</label>
-            <input type="text" class="form-control" formControlName="Direccion" id="Direccion" />
-            <div *ngIf="frm_Cliente.get('Direccion').invalid && frm_Cliente.get('Direccion').touched">
-              <small *ngIf="frm_Cliente.get('Direccion').hasError('required')" style="color: red">La direccion es requerida</small>
             </div>
           </div>
           <div class="form-group mb-3">
